@@ -4,14 +4,14 @@ int	main(void)
 {
 	unsigned	n, k;
 
-	scanf(" %d", &n);					// cчитываем размер массива
+	scanf(" %u", &n);					// cчитываем размер массива
 
 	long		arr[n], max_sum = 0, now_sum;
 
 	for(size_t i = 0; i < n; i++)		// заполняем массив
 		scanf(" %ld", &arr[i]);
 
-	scanf(" %d", &k);					// считываем размер k
+	scanf(" %u", &k);					// считываем размер k
 
 	for(size_t i = 0; i < k; i++)
 		max_sum += arr[i];
