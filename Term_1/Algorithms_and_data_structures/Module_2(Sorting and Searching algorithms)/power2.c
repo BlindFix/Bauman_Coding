@@ -18,7 +18,7 @@ long	recursive_brute_check(int nado, int vsego, int *arr, int index, long sum_no
 	long now_res = 0;
 
 	for (int i = index; i <= (vsego - nado); i++)
-		now_res += recursive_brute_check(nado - 1, vsego, arr, index + 1, sum_node + arr[i], sum_arr);
+		now_res += recursive_brute_check(nado - 1, vsego, arr, i + 1, sum_node + arr[i], sum_arr);
 
 	return (now_res);
 }
@@ -50,7 +50,7 @@ int	main(void)
 	}
 
 	if (n % 2 == 0)
-		count += (recursive_brute_check(n / 2, n, arr, 0, 0, summ));
+		count += (recursive_brute_check(n / 2, n, arr, 0, 0, summ) / 2);
 
 	printf("%ld", count);
 
