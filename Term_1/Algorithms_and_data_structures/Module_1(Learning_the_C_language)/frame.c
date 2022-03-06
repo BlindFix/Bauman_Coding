@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 
 	long str_h = (height - 1) / 2, spaces_1 = (width - len - 2) / 2, spaces_2 = (width - len - 2) - spaces_1;
 
-	printf("%ld, %ld, %s, %ld, %ld\n", height, width, str, len, str_h);
+	// printf("%ld, %ld, %s, %ld, %ld\n", height, width, str, len, str_h);
 	for (long i = 0; i < width; i++)
 		printf("*");
 	printf("\n");
