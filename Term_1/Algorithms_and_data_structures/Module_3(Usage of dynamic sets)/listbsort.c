@@ -55,10 +55,13 @@ struct Elem *bsort(struct Elem *list)
 	{
 		prev = list;
 		now = list->next;
-		for (int j = 1; (j < i) && (now != NULL) && (now->next != NULL); j++, prev = now, now = now->next)
+		for (int j = 1; j < i; j++, prev = now, now = now->next)
 		{
 			if(ListCompare(now, now->next) > 0)
+			{
 				ListSwap(prev, now);
+				now = prev->next;
+			}
 		}
 	}
 	now = list->next;
@@ -229,6 +232,16 @@ char	**ft_split(char const *s, char c)
 	return (ft_free2(s_arr));
 }
 
+void print_list(struct Elem *list, int n)
+{
+	for (int i = 1; i < n; i++)
+	{
+		printf("%s ", list->word);
+				list = list->next;
+	}
+	printf("%s\n", list->word);
+}
+
 int	main(void)
 {
 	char str[1003];
@@ -248,19 +261,18 @@ int	main(void)
 
 	list = bsort(list);
 
-	for (int i = 1; i < n; i++)
+	print_list(list, n);
+
+	for (int i = 0; i < n; i++)
 	{
-		printf("%s ", list->word);
 		tmp = list;
 		list = list->next;
 		free (tmp->word);
 		free (tmp);
 	}
-	printf("%s\n", list->word);
 
-	free (list->word);
-	free (list);
-	free (arr);
+	free(arr[n]);
+	free(arr);
 
 	return (0);
 }
